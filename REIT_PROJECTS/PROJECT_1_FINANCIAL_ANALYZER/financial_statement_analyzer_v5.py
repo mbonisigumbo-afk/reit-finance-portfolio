@@ -149,6 +149,37 @@ def portfolio_statistics(df):
         f"R{df['Total_Assets'].sum():,.0f}"
     )
 
+import matplotlib.pyplot as plt
+
+def create_roa_chart(df):
+
+    plt.figure()
+
+    plt.bar(
+        df["REIT"],
+        df["ROA"]
+    )
+
+    plt.title("ROA by REIT")
+    plt.ylabel("ROA (%)")
+
+    plt.show()
+
+
+def create_debt_chart(df):
+
+    plt.figure()
+
+    plt.bar(
+        df["REIT"],
+        df["Debt_to_Assets"]
+    )
+
+    plt.title("Debt-to-Assets by REIT")
+    plt.ylabel("Debt Ratio (%)")
+
+    plt.show()
+
 def main():
 
     df = load_data()
@@ -180,6 +211,9 @@ def main():
 
     portfolio_statistics(df)
 
+    create_roa_chart(df)
+    create_debt_chart(df)
+
     output_file = (
         Path(__file__).parent
         / "reit_analysis_output.xlsx"
@@ -194,17 +228,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-import matplotlib.pyplot as plt
-
-plt.bar(
-    df["REIT"],
-    df["ROA"]
-)
-
-plt.title("ROA by REIT")
-plt.ylabel("ROA (%)")
-
-plt.show()
-
-

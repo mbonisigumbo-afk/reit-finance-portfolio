@@ -180,6 +180,20 @@ def create_debt_chart(df):
 
     plt.show()
 
+def create_revenue_efficiency_chart(df):
+
+    plt.figure()
+
+    plt.bar(
+        df["REIT"],
+        df["Revenue_per_Asset"]
+    )
+
+    plt.title("Revenue per Asset by REIT")
+    plt.ylabel("Revenue per Asset (%)")
+
+    plt.show()
+
 def main():
 
     df = load_data()
@@ -213,6 +227,7 @@ def main():
 
     create_roa_chart(df)
     create_debt_chart(df)
+    create_revenue_efficiency_chart(df)
 
     output_file = (
         Path(__file__).parent
@@ -229,16 +244,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-def create_revenue_efficiency_chart(df):
-
-    plt.figure()
-
-    plt.bar(
-        df["REIT"],
-        df["Revenue_per_Asset"]
-    )
-
-    plt.title("Revenue per Asset by REIT")
-    plt.ylabel("Revenue per Asset (%)")
-
-    plt.show()

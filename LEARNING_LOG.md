@@ -110,3 +110,67 @@
 * Save charts as PNG files
 * Create dashboard-style reporting
 * Financial Statement Analyzer V6
+
+## Completed
+- Built Financial Statement Analyzer V8
+- Imported Excel data with pandas
+- Created ROA, Debt and Revenue charts
+- Exported multi-sheet Excel workbook
+- Built Dashboard sheet
+
+## Key Concepts Learned
+- pd.read_excel()
+- ExcelWriter
+- Data validation
+- DataFrame creation
+- Multi-sheet reporting
+- Matplotlib chart exports
+
+## Challenges Solved
+- Excel file format issues
+- Indentation errors
+- Scope issues (NameError)
+- ExcelWriter structure## Completed
+- Created Financial Statement Analyzer V9
+- Added Excel report formatting
+- Applied bold header styling with openpyxl
+
+## Completed
+- Created Financial Statement Analyzer V9
+- Added Excel report formatting
+- Applied bold header styling with openpyxl
+
+## Key Concepts Learned
+- openpyxl
+- Excel worksheet objects
+- Cell formatting
+- Font styling
+
+## Challenges Solved
+- ExcelWriter integration with openpyxl
+- Worksheet referencing
+
+# Day 4
+
+## Completed
+- Created Excel Dashboard sheet
+- Added Excel formatting
+- Added auto-fit column widths
+- Generated ROA chart
+- Generated Debt chart
+- Generated Revenue Efficiency chart
+- Embedded charts into Excel workbook
+
+## Key Concepts Learned
+- openpyxl
+- ExcelWriter
+- Worksheet management
+- Chart generation with matplotlib
+- Image embedding in Excel
+
+## Challenges Solved
+- Excel file path issues
+- Chart image paths
+- Excel sheet creation
+- Python indentation errors
+- Workbook formatting

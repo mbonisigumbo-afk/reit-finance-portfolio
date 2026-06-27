@@ -255,6 +255,26 @@ def main():
         ]
     })
 
+    alerts = []
+
+    for _, row in df.iterrows():
+
+        if row["ROA"] >= 5:
+            alerts.append("Strong ROA")
+
+        elif row["ROA"] >= 2:
+            alerts.append("Average ROA")
+
+        else:
+            alerts.append("Weak ROA")
+
+    alerts_df = pd.DataFrame({
+    "REIT": df["REIT"],
+    "ROA": df["ROA"].round(2),
+    "Debt Ratio": df["Debt_to_Assets"].round(2),
+    "Alert": alerts
+    })
+
     output_file = (
         Path(__file__).parent
         / "reit_analysis_output.xlsx"
@@ -277,18 +297,31 @@ def main():
             index=False
         )
 
+        alerts_df.to_excel(
+            writer,
+            sheet_name="Alerts",
+            index=False
+       )
+
         workbook = writer.book
 
         workbook.create_sheet("Charts")
+
+        workbook.create_sheet("Alerts")
 
         analysis_sheet = workbook["Analysis"]
         dashboard_sheet = workbook["Dashboard"]
         charts_sheet = workbook["Charts"]
 
+        alerts_sheet = workbook["Alerts"]
+
         for cell in analysis_sheet[1]:
             cell.font = Font(bold=True)
 
         for cell in dashboard_sheet[1]:
+            cell.font = Font(bold=True)
+
+        for cell in alerts_sheet[1]:
             cell.font = Font(bold=True)
 
         auto_fit_columns(
@@ -297,6 +330,10 @@ def main():
 
         auto_fit_columns(
             dashboard_sheet
+        )
+
+        auto_fit_columns(
+            alerts_sheet
         )
 
         roa_image = Image(

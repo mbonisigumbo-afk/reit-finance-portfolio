@@ -174,3 +174,46 @@
 - Excel sheet creation
 - Python indentation errors
 - Workbook formatting
+
+# Day 5
+
+## Completed
+
+* Cleaned and refactored the REIT Financial Analyzer code
+* Fixed duplicate code and indentation issues
+* Generated ROA chart
+* Generated Debt-to-Assets chart
+* Generated Revenue Efficiency chart
+* Embedded charts into the Excel workbook
+* Created a Charts worksheet
+* Created an Alerts worksheet
+* Added automated analyst performance alerts
+* Exported a professional four-sheet Excel report (Analysis, Dashboard, Charts and Alerts)
+* Improved Excel workbook formatting
+* Completed REIT Financial Analyzer V12
+* Committed V12 to Git and pushed to GitHub
+
+## Key Concepts Learned
+
+* Code refactoring
+* Writing reusable helper functions
+* openpyxl workbook management
+* ExcelWriter workflow
+* Creating and exporting multiple DataFrames
+* Embedding images into Excel worksheets
+* Business rule implementation
+* Automating Excel report generation
+* Git version control (add, commit, push)
+
+## Challenges Solved
+
+* Removed duplicate code
+* Fixed Python indentation errors
+* Corrected workbook and worksheet references
+* Resolved Excel image embedding issues
+* Fixed chart file path handling
+* Corrected ExcelWriter scope
+* Fixed chart placement inside Excel
+* Successfully generated a four-sheet Excel workbook
+* Debugged NameError and indentation issues
+

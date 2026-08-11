@@ -408,11 +408,67 @@ def main():
                 bold=True
             )
 
-        for cell in dashboard_sheet[1]:
+        # Insert title row
+        dashboard_sheet.insert_rows(1)
 
-            cell.font = Font(
-                bold=True
-            )
+        dashboard_sheet["A1"] = "REIT EXECUTIVE DASHBOARD"
+
+        dashboard_sheet["A1"].font = Font(
+                bold=True,
+                size=16
+        )
+
+        # Format Dashboard header
+        for cell in dashboard_sheet[2]:
+
+                cell.font = Font(
+                    bold=True,
+                    size=12
+                )
+
+        # Set Dashboard column widths
+        dashboard_sheet.column_dimensions["A"].width = 32
+        dashboard_sheet.column_dimensions["B"].width = 28
+        # Dashboard metric highlighting
+
+        highlight_fill = PatternFill(
+            fill_type="solid",
+            start_color="E2F0D9"
+        )
+
+        for row in range(
+            3,    
+            dashboard_sheet.max_row + 1 
+        ):
+
+            metric_cell = dashboard_sheet[f"A{row}"]
+            value_cell = dashboard_sheet[f"B{row}"]
+
+            if metric_cell.value in [
+                "Highest ROA",
+                "Lowest Debt Ratio",
+                "Best Revenue Efficiency"
+            ]:
+
+               metric_cell.font = Font(
+                   bold=True
+             )
+
+               value_cell.font = Font(
+                   bold=True
+               )
+
+               metric_cell.fill = highlight_fill
+               value_cell.fill = highlight_fill
+
+        # Freeze Dashboard header
+        dashboard_sheet.freeze_panes = "A3"
+        dashboard_sheet["A1"] = "REIT EXECUTIVE DASHBOARD"
+
+        dashboard_sheet["A1"].font = Font(
+                bold=True,
+                size=14
+)
 
         for cell in alerts_sheet[1]:
 
